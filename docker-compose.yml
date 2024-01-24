@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  react_frontend:
+    image: node:latest
+    container_name: react_frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/:/workspace
+    working_dir: /workspace
+    command: sh /workspace/script.sh
+  react_backend:
+    image: python:latest
+    container_name: react_backend
+    ports:
+      - 3030:3030
+    volumes:
+      - ./backend/:/workspace
+    working_dir: /workspace
+    command: sh /workspace/script.sh
